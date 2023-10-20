@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melodika</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800">
+</head>
+<body>
+    <%
+        let arquivo = {"imagem":"imagens/perfil/userico.svg"}
+
+        if(autenticado.img_perfil_pasta != null){
+            arquivo.imagem = autenticado.img_perfil_pasta
+        }
+    %>
+    <header id="header">
+
+        <section>
+            <a href="/">
+                <img src="imagens/logo.svg" alt="Logo">
+            </a>
+        </section>
+    
+        <%if (autenticado.id){%>
+            <section id="abrenav" onclick="nav()">
+                <img id="imgnav" src="<%= arquivo.imagem %>" alt="Menu">    
+            </section>
+        <% } else { %>
+            <section id="abrenav">
+                <a href="/login"><img id="imgnav" src="<%= arquivo.imagem %>" alt="Menu"></a>
+            </section>
+        <%}%>
+
+        <nav id="nav">
+            <%
+            if(autenticado.tipo == '2'){
+            %>
+            <a href="/adm" class="adm">Painel administrativo</a>
+            <%    
+            }
+            %>
+            <a href="/perfil">Perfil</a>
+            <a href="/chats">Chats</a>
+            <a href="/perfil">Meus Cursos</a>
+            <a href="/cadastrocurso">Cadastrar Curso</a>
+            <a href="/filtro">Procurar Curso</a>
+            <a class="sair" href="/sair">Sair</a>
+            <a class="excluir" href="/excluir">Excluir Perfil</a>
+        </nav>
+
+    </header>
+    <main>
+        <% 
+            let msgErro = {"user":"", "nick":"",email:"", senha:""};
+            let avisoErro = {"user":"", "nick":"",email:"", senha:""};
+            if(listaErros){
+                listaErros.errors.forEach(function(itemErro){
+                    avisoErro.user = "erro";
+
+                    if(itemErro.path == "user"){
+                        msgErro.user += " "+itemErro.msg
+                    }
+                    if(itemErro.path == "nick"){
+                        avisoErro.nick = "erro";
+                        msgErro.nick += itemErro.msg
+                    }
+                    if(itemErro.path == "email"){
+                        avisoErro.email = "erro";
+                        msgErro.email += itemErro.msg
+                    }
+                    if(itemErro.path == "senha"){
+                        avisoErro.senha = "erro";
+                        msgErro.senha += itemErro.msg
+                    }
+                })
+            }
+        %>
+        <% 
+            let avisoErrolog = {"usuario":"", "senhalog":""}
+            let msgErrolog = {"usuario":"", "senhalog":""}
+                if(listaErroslog){
+                    listaErroslog.errors.forEach(function(itemErrolog){
+                        if(itemErrolog.path == "usuario"){
+                            avisoErrolog.usuario = "erro";
+                            msgErrolog.usuario = itemErrolog.msg
+                        }
+                        if(itemErrolog.path == "senhalog"){
+                            avisoErrolog.senhalog = "erro";
+                            msgErrolog.senhalog = itemErrolog.msg
+                        }
+                    })
+                }
+        %>
+        <section id="login">
+            <h1>Entrar</h1>
+            <form method="post" id="entrar" action="/entrar"> 
+                <label for="usuario">E-mail ou nome de usuário</label>
+                <input type="text" name="usuario" id="usuario">
+                <span class="erroslog"><%= msgErrolog.usuario %></span>
+
+                <label for="senha">Senha</label>
+                <input type="password" name="senhalog" id="senhalog">
+                <span class="erroslog"><%= msgErrolog.senhalog %></span>
+
+                <input type="submit" id="entrar" name="entrar" value="Entrar">
+                
+                <span>Ainda não tem uma conta?</span><a onclick="cadastra()">Cadastrar</a>
+            </form>
+        </section>
+        <section id="cadastro">
+            <h1>Cadastrar</h1>
+            <form method="post" id="cadastrar" action="/cadastrar">
+                <label for="nome">Nome</label>
+                <input type="text" name="user" id="user" value="<%=valores.user%>">
+                <span class="erroscad"><%= msgErro.user%></span>
+
+                <label for="nick">Apelido</label>
+                <input type="text" name="nick" id="nick" value="<%=valores.nick%>">
+                <span class="erroscad"><%= msgErro.nick%></span>
+
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" value="<%=valores.email%>">
+                <span class="erroscad"><%= msgErro.email%></span>
+
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha">
+                <span class="erroscad"><%= msgErro.senha%></span>
+                
+                <label for="repsenha">Repita a senha</label>
+                <input type="password" name="repsenha" id="repsenha">
+
+                <label for="cpf">CPF</label>
+                <input type="number" name="cpf" id="cpf" value="<%=valores.cpf%>">
+
+                <label for="num">Número de celular</label>
+                <input type="number" name="num" id="num" value="<%=valores.num%>">
+
+                <label for="datanasc">Data de Nascimento</label>
+                <input type="date" name="datanasc" id="datanasc" value="<%=valores.datanasc%>">
+
+                <section>
+                    <label for="genero" id="gen">Gênero</label>
+
+                    <input type="radio" name="genero" id="masc" value="masculino">
+                    <label for="masc">Masculino</label>
+                    <input type="radio" name="genero" id="femi" value="feminino">
+                    <label for="femi">Feminino</label>
+                    <input type="radio" name="genero" id="outro" value="outro">
+                    <label for="outro">Outro</label>
+                </section>
+
+                <div class="termos" onclick="mostratermo()">
+                    <input type="checkbox" id="termos" required href="#header">
+                    <label for="termos" class="termos2">Li e Concordo com os <a>Termos de Uso</a>.</label>
+                </div>
+                
+                <input href="#termo" type="submit" id="cadastrar" name="cadastrar" value="Cadastrar">
+                <span>Já tem uma conta?<a onclick="entra()">Entrar</a></span>
+            </form>
+        </section>
+        <section id="termo" style="display:none">
+            <h2>Termos de Uso</h2>
+            <article>Seja bem-vindo ao Melodika!
+                
+                <br><br>Estes termos e condições descrevem as regras de uso do site da empresa Melodika, localizado no endereço melodika.com.br.
+                
+                
+                
+                
+                <br><br>Ao acessar este site, consideramos que você está de acordo com os termos e condições abaixo. Não continue a usar o Melodika caso você discorde dos termos e condições descritos neste contrato.
+                
+                
+                
+                
+                <br><br>Cookies:
+                
+                <br><br>O site usa cookies para ajudar na personalização da sua experiência na internet. Ao acessar o site Melodika, você concorda com o uso dos cookies requeridos.
+                
+                
+                
+                
+                <br><br>Cookies são arquivos de texto inseridos no seu disco rígido por um servidor de página web. Os cookies não têm permissão para executar programas ou transferir vírus para seu computador. Os cookies são associados exclusivamente a você e só podem ser lidos pelo servidor web do domínio que emitiu o cookie.
+                
+                
+                
+                
+                <br><br>Nós podemos usar cookies para coletar, armazenar ou rastrear informações para finalidades estatísticas e mercadológicas do nosso site. Você tem a opção de aceitar ou rejeitar os cookies opcionais. Existem alguns cookies obrigatórios, que são necessários para o funcionamento de nosso site. Esses cookies obrigatórios não requerem seu consentimento. Por favor, tenha em mente que, ao aceitar os cookies obrigatórios, você também estará aceitando cookies de terceiros, que podem ser usados por terceiros caso você utilize serviços fornecidos por eles em nosso site – por exemplo, uma janela de reprodução de vídeo fornecida por empresas terceiras e integrada ao nosso site.
+                
+                
+                
+                
+                <br><br>Licença:
+                
+                <br><br>Exceto em casos em que for indicado o contrário, Melodika e seus licenciados têm direito à propriedade intelectual de todo o material postado no Melodika. Todos os direitos à propriedade intelectual são reservados.
+                
+                
+                
+                
+                <br><br>Você não tem permissão para:
+                
+                
+                
+                
+                <br><br>Copiar ou republicar materiais do Melodika
+                
+                <br><br>Vender, alugar ou sublocar materiais do Melodika
+                
+                <br><br>Reproduzir, duplicar ou copiar materiais do Melodika
+                
+                <br><br>Redistribuir conteúdos do Melodika
+                
+                <br><br>Este Acordo terá efeito a partir da data presente.
+                
+                
+                
+                
+                <br><br>Partes deste site oferecem ao usuário a oportunidade de postar e discutir opiniões e informações em determinadas áreas. Melodika não filtra, edita, publica ou revisa Comentários antes que eles sejam apresentados no site. Comentários refletem as opiniões da pessoa que os posta. Na extensão em que as leis aplicáveis permitem, Melodika não se responsabiliza legalmente pelos Comentários ou quaisquer danos, riscos ou despesas causadas ou sofridas como resultado do uso, e/ou postagem e/ou aparência dos Comentários deste site.
+                
+                
+                
+                
+                <br><br>Melodika reserva para si o direito de remover quaisquer Comentários que possam ser considerados inapropriados, ofensivos ou quebrem os Termos e Condições deste contrato.
+                
+                
+                
+                
+                <br><br>Você declara e garante que:
+                
+                
+                
+                
+                <br><br>Você tem o direito de postar Comentários em nosso site e tem todas as licenças e consentimentos para tal;
+                
+                <br><br>Seus Comentários não invadem qualquer propriedade intelectual, incluindo direitos autorais, patentes ou marcas registradas de terceiros;
+                
+                <br><br>Seus Comentários não contém material difamatório, injurioso, ofensivo, indecente ou de alguma forma ilícito, que é invasão de privacidade.
+                
+                <br><br>Seus Comentários não serão usados para solicitar ou promover negócios ou apresentar atividades comerciais ou atividades ilícitas.
+                
+                <br><br>Você por meio deste concede a Melodika a licença não-exclusiva de usar, reproduzir, editar e autorizar outros a usar, reproduzir ou editar qualquer um de seus Comentários em qualquer e todas as formas, formatos e mídias.
+                
+                
+                
+                
+                <br><br>Criação de links para nosso conteúdo
+                
+                <br><br>As seguintes organizações podem criar links para nosso Site sem a necessidade de aprovação prévia por escrito:
+                
+                
+                
+                
+                <br><br>Agências governamentais;
+                
+                <br><br>Mecanismos de busca;
+                
+                <br><br>Organizações de mídia;
+                
+                <br><br>Distribuidores de diretórios online podem inserir links para nosso Site na mesma maneira que inserem hiperlinks para Sites de outras empresas listadas; e
+                
+                <br><br>Empresas credenciadas, exceto organizações angariantes sem fins lucrativos e grupos de arrecadação de fundos para instituições de caridade, que não podem inserir links para nosso Site sem aprovação prévia.
+                
+                <br><br>Essas organizações podem postar links para nossa página inicial, nossas publicações ou outras informações do Site, contanto que o link: (a) não seja, de forma alguma, enganoso; (b) não insinue falsamente a existência de uma relação de patrocínio, endosso, ou aprovação nossa a produtos e/ou serviços; e (c) seja apropriado ao contexto em que está sendo inserido.
+                
+                
+                
+                
+                <br><br>Nós podemos considerar e aprovar solicitações de link feitas pelos seguintes tipos de organizações:
+                
+                
+                
+                
+                <br><br>fontes de informação bem conhecidas sobre produtos e negócios;
+                
+                <br><br>sites comunitários ponto.com;
+                
+                <br><br>associações e outros grupos que representem instituições de caridade;
+                
+                <br><br>distribuidores de diretórios online;
+                
+                <br><br>portais de internet;
+                
+                <br><br>firmas de contabilidade, advocacia e consultoria; e
+                
+                <br><br>instituições educacionais e associações de classe.
+                
+                <br><br>Nós vamos aprovar solicitações de link feitas pelos tipos de organização listados acima se julgarmos que: (a) o link não é desfavorável para nossa imagem e/ou para a imagem de empresas credenciadas; (b) a organização solicitante não possui histórico negativo conosco; (c) o benefício que ganhamos com a visibilidade do link compensa a ausência do Melodika; e (d) o link será inserido em um contexto geral informativo.
+                
+                
+                
+                
+                <br><br>Essas organizações podem postar links para nossa página inicial contanto que o link: (a) não seja, de forma alguma, enganoso; (b) não insinue falsamente a existência de uma relação de patrocínio, endosso, ou aprovação de produtos e/ou serviços da nossa parte; e (c) seja apropriado ao contexto em que está sendo inserido.
+                
+                
+                
+                
+                <br><br>Se você representa uma das organizações listadas no parágrafo 2 acima e está interessado em postar um link para nosso site, você deve nos informar de seu interesse enviando um e-mail para Melodika. Por favor, inclua seu some, o nome da sua organização e suas informações de contato, assim como a URL do seu site, uma lista das URLs do nosso site que você pretende usar como links, e uma lista dos sites nos quais você pretende publicar nossas URLs. Aguarde entre 2 e 3 semanas para receber uma resposta.
+                
+                
+                
+                
+                <br><br>Organizações aprovadas poderão publicar links para nosso Site das seguintes formas:
+                
+                
+                
+                
+                <br><br>Usando nosso nome corporativo; ou
+                
+                <br><br>Usando a URL para onde o link redireciona; ou
+                
+                <br><br>Usando qualquer outra descrição do nosso Site que faça sentido dentro do contexto e do formato do conteúdo onde o link está sendo inserido.
+                
+                <br><br>Não será permitido o uso ou a publicação de links para o logo e/ou outros elementos visuais da Melodika sem um acordo de licença para o uso da marca registrada.
+                
+                
+                
+                
+                <br><br>Responsabilização pelo Conteúdo:
+                
+                <br><br>Não seremos responsabilizados legalmente por qualquer conteúdo que apareça no seu Site. Você concorda em nos proteger e nos defender contra todas as acusações que forem levantadas no seu Site. Nenhum link deve aparecer em qualquer Site que possa ser interpretado como difamatório, obsceno, criminoso, ou que infrinja, viole ou defenda a violação dos direitos de terceiros.
+                
+                
+                
+                
+                <br><br>Reserva de Direitos:
+                
+                <br><br>Reservamos nosso direito de solicitar que você remova todos os links ou quaisquer links que redirecionem para nosso site. Você concorda em remover imediatamente todos os links para nosso site assim que a remoção for solicitada. Também reservamos nosso direito de corrigir e alterar estes termos e condições a qualquer momento. Ao publicar continuadamente links para nosso site, você concorda a seguir estes termos e condições sobre links.
+                
+                
+                
+                
+                <br><br>Remoção de links postados em nosso site:
+                
+                <br><br>Se você encontrar qualquer link em nosso Site que seja de qualquer forma ofensivo, você tem a liberdade de entrar em contato conosco e nos informar do problema a qualquer momento. Vamos considerar as solicitações de remoção de links, mas não somos obrigados a remover quaisquer links do nosso site nem a responder diretamente à sua solicitação.
+                
+                
+                
+                
+                <br><br>Nós não garantimos que as informações continas neste site são corretas. Nós não garantimos integralidade ou exatidão do conteúdo. Não garantimos que o site se manterá disponível ou que o material do site se manterá atualizado.
+                
+                
+                
+                
+                <br><br>Declaração de Isenção de Responsabilidade:
+                
+                <br><br>No máximo possível permitido por lei, nós excluímos todas as representações, garantias e condições relativas ao nosso site e ao uso deste site. Nada nesta declaração de isenção de responsabilidade vai:
+                
+                
+                
+                
+                <br><br>limitar ou excluir nossa responsabilidade ou sua responsabilidade por mortes ou danos pessoais;
+                
+                <br><br>limitar ou excluir nossa responsabilidade ou sua responsabilidade por fraudes ou deturpações fraudulentas;
+                
+                <br><br>limitar nossa responsabilidade ou sua responsabilidade de quaisquer maneiras que não forem permitidas sob a lei;
+                
+                <br><br>excluir quaisquer responsabilidades suas ou nossas que não podem ser excluídas de acordo com a lei aplicável.
+                
+                <br><br>As limitações e proibições de responsabilização listadas nesta Seção e em outras partes desta declaração: (a) estão sujeitas ao parágrafo anterior; e (b) regem todas as responsabilizações que surgirem sob a declaração, incluindo responsabilizações surgidas em contrato, em delitos e em quebra de obrigações legais.
+                
+                
+                
+                
+                <br><br>Enquanto o site e as informações e serviços do site forem oferecidos gratuitamente, nós não seremos responsáveis por perdas e danos de qualquer natureza.</article>
+        
+                <button onclick="escondetermo()">Concordo</button>
+            
+            </section>
+        <% if (listaErros){%>
+            <!-- <script>
+                const csscadas = window.getComputedStyle(window.document.getElementById("cadastro"));
+                let disp = csscadas.getPropertyValue("display");
+                disp = "block";
+                
+                const csslogas = window.getComputedStyle(window.document.getElementById("login"));
+                let disp2 = csscadas.getPropertyValue("display");
+                disp2 = "none";
+                
+                // let dcadas = cssObj.getPropertyValue("display");                    //https://www.w3schools.com/jsref/jsref_getcomputedstyle.asp
+                // disp = block;
+
+                // let logas = window.document.getElementById("login");
+                // getComputedStyle(logas);
+                // let dlogas = cssObj.getPropertyValue("display");
+                // disp = none;
+            </script> -->
+            <script>
+                cadastra();
+            </script>
+        <%}%>
+    </main>
+    <footer>
+        <img src="imagens/logo.svg">
+    </footer>
+</body>
+</html>

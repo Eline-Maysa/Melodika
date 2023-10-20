@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melodika</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800">
+</head>
+<body>
+    <%
+        let arquivo = {"imagem":"imagens/perfil/userico.svg"}
+
+        if(autenticado.img_perfil_pasta != null){
+            arquivo.imagem = autenticado.img_perfil_pasta
+        }
+    %>
+    <header id="header">
+
+        <section>
+            <a href="/">
+                <img src="imagens/logo.svg" alt="Logo">
+            </a>
+        </section>
+    
+        <%if (autenticado.id){%>
+            <section id="abrenav" onclick="nav()">
+                <img id="imgnav" src="<%= arquivo.imagem %>" alt="Menu">    
+            </section>
+        <% } else { %>
+            <section id="abrenav">
+                <a href="/login"><img id="imgnav" src="<%= arquivo.imagem %>" alt="Menu"></a>
+            </section>
+        <%}%>
+
+        <nav id="nav">
+            <%
+            if(autenticado.tipo == '2'){
+            %>
+            <a href="/adm" class="adm">Painel administrativo</a>
+            <%    
+            }
+            %>
+            <a href="/perfil">Perfil</a>
+            <a href="/chats">Chats</a>
+            <a href="/perfil">Meus Cursos</a>
+            <a href="/cadastrocurso">Cadastrar Curso</a>
+            <a href="/filtro">Procurar Curso</a>
+            <a class="sair" href="/sair">Sair</a>
+            <a class="excluir" href="/excluir">Excluir Perfil</a>
+        </nav>
+
+    </header>
+
+    <main class="mainadm">
+        <button type="button" id="admbusca">Buscar</button>
+        <h1>Painel administrativo</h1>
+        <section class="tabelaadm">
+            <div class="tabadm">
+                <h2>Nome</h2>
+                <h2>Apelido</h2>
+                <h2>Email</h2>
+                <h2>Telefone</h2>
+                <h2>Tipo</h2>
+            </div>
+            <div class="tabeadm">
+                <h2 name="id_Cadastro"><%=autenticado.user%></h2>
+                <h2 name="nomeusuario"><%=autenticado.nick%></h2>
+                <h2 name="email"><%=autenticado.autenticado%></h2>
+                <h2 name="numero"><%=autenticado.num%></h2>
+                <h2 name="tipo"><%=autenticado.tipo%></h2>
+            </div>
+
+
+            <span><%=dados.admdata%></span>
+        </section>
+        
+        <div class="botoestab">
+            <a><button class="tabeadmb1">Inativar</button></a>
+            <a><button class="tabeadmb2">Deletar</button></a>
+        </div>
+    </main>

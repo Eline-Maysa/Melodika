@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melodika</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800">
+</head>
+<body>
+    <%
+        let arquivo = {"imagem":"imagens/perfil/userico.svg"}
+
+        if(autenticado.img_perfil_pasta != null){
+            arquivo.imagem = autenticado.img_perfil_pasta
+        }
+    %>
+    <header id="header">
+
+        <section>
+            <a href="/">
+                <img src="imagens/logo.svg" alt="Logo">
+            </a>
+        </section>
+    
+        <%if (autenticado.id){%>
+            <section id="abrenav" onclick="nav()">
+                <img id="imgnav" src="<%= arquivo.imagem %>" alt="Menu">    
+            </section>
+        <% } else { %>
+            <section id="abrenav">
+                <a href="/login"><img id="imgnav" src="<%= arquivo.imagem %>" alt="Menu"></a>
+            </section>
+        <%}%>
+
+        <nav id="nav">
+                <%
+                if(autenticado.tipo == '2'){
+                %>
+                <a href="/adm" class="adm">Painel administrativo</a>
+                <%    
+                }
+                %>
+                <a href="/perfil">Perfil</a>
+                <a href="/chats">Chats</a>
+                <a href="/perfil">Meus Cursos</a>
+                <a href="/cadastrocurso">Cadastrar Curso</a>
+                <a href="/filtro">Procurar Curso</a>
+                <a class="sair" href="/sair">Sair</a>
+                <a class="excluir" href="/excluir">Excluir Perfil</a>
+        </nav>
+
+    </header>
+    <main>
+        <section id="home1">
+            <h2>Aprenda <span>música</span></h2>
+            <h2>Aqui,</h2>
+            <h2>Agora,</h2>
+            <h2>Do seu jeito.</h2>
+
+            <img src="imagens/vecteezy_man-character-thinking_9884899 copiar2.png">
+            <img src="imagens/music-notes-bundle-symbols-music-lover-free-svg-file-SVGHEART.COM copiar.png">
+
+            <a href="/filtro"><button type="button" id="levacursos">Ver Cursos</button></a>
+            <%if (autenticado.id){%>
+            <a href="/perfil"><button type="button" id="levaperfil">Perfil</button></a>
+            <% } else { %>
+            <a href="/login"><button type="button" id="levalogin">Entrar</button></a>
+            <%}%>
+        </section>
+
+        <section id="destaques">
+            <h2>Destaques em canto</h2>
+            <section id="cursoscanto">
+                <div class="curso">
+                    <img src="imagens/imagem.svg">
+                    <h3>Titulo do curso</h3>
+                    <h4>Por Fulano de Tal</h4>
+
+                    <p>
+                        Pequeno texto escrito pelo autor do curso no intuito de convencer o leitor a comprá-lo. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu nulla vitae sem 
+                        ullamcorper ornare vitae id metus. Sed nulla mauris, viverra sit amet hendrerit nec, 
+                        semper sit amet turpis.
+                    </p>
+
+                    <div>
+                        <img src="imagens/aluno.svg">
+                        <span>1.620</span>
+                        <img src="imagens/estrelapad.svg">
+                        <span>4,5</span>
+
+                        <a href="/curso"><button type="button" id="compracurso">R$19,00</button></a>
+                    </div>
+                </div>
+                <div class="curso">
+                    <img src="imagens/imagem.svg">
+                    <h3>Titulo do curso</h3>
+                    <h4>Por Fulano de Tal</h4>
+
+                    <p>
+                        Pequeno texto escrito pelo autor do curso no intuito de convencer o leitor a comprá-lo. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu nulla vitae sem 
+                        ullamcorper ornare vitae id metus. Sed nulla mauris, viverra sit amet hendrerit nec, 
+                        semper sit amet turpis.
+                    </p>
+
+                    <div>
+                        <img src="imagens/aluno.svg">
+                        <span>1.620</span>
+                        <img src="imagens/estrelapad.svg">
+                        <span>4,5</span>
+
+                        <a href="/curso"><button type="button" id="compracurso">R$19,00</button></a>
+                    </div>
+                </div>
+                <div class="curso">
+                    <img src="imagens/imagem.svg">
+                    <h3>Titulo do curso</h3>
+                    <h4>Por Fulano de Tal</h4>
+
+                    <p>
+                        Pequeno texto escrito pelo autor do curso no intuito de convencer o leitor a comprá-lo. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu nulla vitae sem 
+                        ullamcorper ornare vitae id metus. Sed nulla mauris, viverra sit amet hendrerit nec, 
+                        semper sit amet turpis.
+                    </p>
+
+                    <div>
+                        <img src="imagens/aluno.svg">
+                        <span>1.620</span>
+                        <img src="imagens/estrelapad.svg">
+                        <span>4,5</span>
+
+                        <a href="/curso"><button type="button" id="compracurso">R$19,00</button></a>
+                    </div>
+                </div>
+            </section>
+            <h2>Destaques em cordas</h2>
+            <section id="cursoscordas">
+                <div class="curso">
+                    <img src="imagens/imagem.svg">
+                    <h3>Titulo do curso</h3>
+                    <h4>Por Fulano de Tal</h4>
+
+                    <p>
+                        Pequeno texto escrito pelo autor do curso no intuito de convencer o leitor a comprá-lo. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu nulla vitae sem 
+                        ullamcorper ornare vitae id metus. Sed nulla mauris, viverra sit amet hendrerit nec, 
+                        semper sit amet turpis.
+                    </p>
+
+                    <div>
+                        <img src="imagens/aluno.svg">
+                        <span>1.620</span>
+                        <img src="imagens/estrelapad.svg">
+                        <span>4,5</span>
+
+                        <a href="/curso"><button type="button" id="compracurso">R$19,00</button></a>
+                    </div>
+                </div>
+                <div class="curso">
+                    <img src="imagens/imagem.svg">
+                    <h3>Titulo do curso</h3>
+                    <h4>Por Fulano de Tal</h4>
+
+                    <p>
+                        Pequeno texto escrito pelo autor do curso no intuito de convencer o leitor a comprá-lo. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu nulla vitae sem 
+                        ullamcorper ornare vitae id metus. Sed nulla mauris, viverra sit amet hendrerit nec, 
+                        semper sit amet turpis.
+                    </p>
+
+                    <div>
+                        <img src="imagens/aluno.svg">
+                        <span>1.620</span>
+                        <img src="imagens/estrelapad.svg">
+                        <span>4,5</span>
+
+                        <a href="/curso"><button type="button" id="compracurso">R$19,00</button></a>
+                    </div>
+                </div>
+                <div class="curso">
+                    <img src="imagens/imagem.svg">
+                    <h3>Titulo do curso</h3>
+                    <h4>Por Fulano de Tal</h4>
+
+                    <p>
+                        Pequeno texto escrito pelo autor do curso no intuito de convencer o leitor a comprá-lo. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu nulla vitae sem 
+                        ullamcorper ornare vitae id metus. Sed nulla mauris, viverra sit amet hendrerit nec, 
+                        semper sit amet turpis.
+                    </p>
+
+                    <div>
+                        <img src="imagens/aluno.svg">
+                        <span>1.620</span>
+                        <img src="imagens/estrelapad.svg">
+                        <span>4,5</span>
+
+                        <a href="/curso"><button type="button" id="compracurso">R$19,00</button></a>
+                    </div>
+                </div>
+            </section>
+            <h2>Destaques em percussao</h2>
+            <section id="cursospercussao">
+                <div class="curso">
+                    <img src="imagens/imagem.svg">
+                    <h3>Titulo do curso</h3>
+                    <h4>Por Fulano de Tal</h4>
+
+                    <p>
+                        Pequeno texto escrito pelo autor do curso no intuito de convencer o leitor a comprá-lo. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu nulla vitae sem 
+                        ullamcorper ornare vitae id metus. Sed nulla mauris, viverra sit amet hendrerit nec, 
+                        semper sit amet turpis.
+                    </p>
+
+                    <div>
+                        <img src="imagens/aluno.svg">
+                        <span>1.620</span>
+                        <img src="imagens/estrelapad.svg">
+                        <span>4,5</span>
+
+                        <a href="/curso"><button type="button" id="compracurso">R$19,00</button></a>
+                    </div>
+                </div>
+                <div class="curso">
+                    <img src="imagens/imagem.svg">
+                    <h3>Titulo do curso</h3>
+                    <h4>Por Fulano de Tal</h4>
+
+                    <p>
+                        Pequeno texto escrito pelo autor do curso no intuito de convencer o leitor a comprá-lo. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu nulla vitae sem 
+                        ullamcorper ornare vitae id metus. Sed nulla mauris, viverra sit amet hendrerit nec, 
+                        semper sit amet turpis.
+                    </p>
+
+                    <div>
+                        <img src="imagens/aluno.svg">
+                        <span>1.620</span>
+                        <img src="imagens/estrelapad.svg">
+                        <span>4,5</span>
+
+                        <a href="/curso"><button type="button" id="compracurso">R$19,00</button></a>
+                    </div>
+                </div>
+                <div class="curso">
+                    <img src="imagens/imagem.svg">
+                    <h3>Titulo do curso</h3>
+                    <h4>Por Fulano de Tal</h4>
+
+                    <p>
+                        Pequeno texto escrito pelo autor do curso no intuito de convencer o leitor a comprá-lo. 
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu nulla vitae sem 
+                        ullamcorper ornare vitae id metus. Sed nulla mauris, viverra sit amet hendrerit nec, 
+                        semper sit amet turpis.
+                    </p>
+
+                    <div>
+                        <img src="imagens/aluno.svg">
+                        <span>1.620</span>
+                        <img src="imagens/estrelapad.svg">
+                        <span>4,5</span>
+
+                        <a href="/curso"><button type="button" id="compracurso">R$19,00</button></a>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+        <section id="levafiltro">
+            <h2>Não achou o que procurava?</h2>
+            <img src="imagens/lupa.svg">
+
+            <a href="/filtro"><button type="button" id="levafiltro">Ver mais cursos</button></a>
+        </section>
+
+        <section id="levachat">
+            <h2>Converse com os</h2>
+            <h2>criadores de conteúdo</h2>
+
+            <img src="imagens/chat2.png">
+            <img src="imagens/chat1.png">
+
+            <a href="/chats"><button type="button" id="levachat">Meus Chats</button></a>
+        </section>
+
+        <section id="perfispop">
+            <h3>Perfis Populares</h3>
+            <section id="perfis">
+                <div class="perfil">
+                    <div>
+                        <img src="imagens/userico.svg">
+
+                        <span>Nome</span>
+                        <span>3 Cursos</span>
+                        <span>123 Alunos</span>
+                    </div>
+                </div>
+                <div class="perfil">
+                    <div>
+                        <img src="imagens/userico.svg">
+
+                        <span>Nome</span>
+                        <span>3 Cursos</span>
+                        <span>123 Alunos</span>
+                    </div>
+                </div>
+                <div class="perfil">
+                    <div>
+                        <img src="imagens/userico.svg">
+
+                        <span>Nome</span>
+                        <span>3 Cursos</span>
+                        <span>123 Alunos</span>
+                    </div>
+                </div>
+                <div class="perfil">
+                    <div>
+                        <img src="imagens/userico.svg">
+
+                        <span>Nome</span>
+                        <span>3 Cursos</span>
+                        <span>123 Alunos</span>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <img src="imagens/logo.svg">
+    </footer>
+</body>
+</html>

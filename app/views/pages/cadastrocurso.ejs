@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melodika</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800">
+</head>
+<body>
+    <%
+        let arquivo = {"imagem":"imagens/perfil/userico.svg"}
+
+        if(autenticado.img_perfil_pasta != null){
+            arquivo.imagem = autenticado.img_perfil_pasta
+        }
+    %>
+    <header id="header">
+
+        <section>
+            <a href="/">
+                <img src="imagens/logo.svg" alt="Logo">
+            </a>
+        </section>
+    
+        <%if (autenticado.id){%>
+            <section id="abrenav" onclick="nav()">
+                <img id="imgnav" src="<%= arquivo.imagem %>" alt="Menu">    
+            </section>
+        <% } else { %>
+            <section id="abrenav">
+                <a href="/login"><img id="imgnav" src="<%= arquivo.imagem %>" alt="Menu"></a>
+            </section>
+        <%}%>
+
+        <nav id="nav">
+            <%
+            if(autenticado.tipo == '2'){
+            %>
+            <a href="/adm" class="adm">Painel administrativo</a>
+            <%    
+            }
+            %>
+            <a href="/perfil">Perfil</a>
+            <a href="/chats">Chats</a>
+            <a href="/perfil">Meus Cursos</a>
+            <a href="/cadastrocurso">Cadastrar Curso</a>
+            <a href="/filtro">Procurar Curso</a>
+            <a class="sair" href="/sair">Sair</a>
+            <a class="excluir" href="/excluir">Excluir Perfil</a>
+        </nav>
+
+    </header>
+    <main>
+        <form method="post" id="cadastracurso">
+            <section>
+                <label for="nomecurso">Nome do Curso</label>
+                <input type="text" name="nomecurso" id="nomecurso">
+
+                <label for="descricao">Descrição</label>
+                <input type="text" name="descricao" id="descricao">
+
+                <label for="instrumento">Instrumento</label>
+                <select>
+                    <option value="" disabled selected>Instrumento</option>
+                    <!-- IMPORTANTE -->
+                </select>
+
+                <label for="preco">Preço</label>
+                <input type="number" name="preco" id="preco">
+                <span>Será cobrada uma taxa de x% a cada compra</span>
+                <span>Deixe em branco para fornecer o curso gratuitamente.</span>
+
+                <label for="imgcapa">
+                Imagem Capa
+                <div>
+                    <span>Clique para adicionar um arquivo</span>
+                </div>
+                </label>
+                <input type="file" name="imgcapa" id="imgcapa">
+
+                <a onclick="proximo()" id="proximo"><img src="imagens/proximo.svg"></a>
+            </section>
+            <section>
+                
+
+                <label for="videos">
+                Vídeos
+                <div>
+                    <span>Clique para adicionar um arquivo</span>
+                </div>
+                </label>
+                <input type="file" name="videos" id="videos" multiple>
+                <button type="button" name="editar" id="editar">Editar</button>
+            
+                <label for="material">
+                Arquivos Extras / Material Didático
+                <div>
+                    <span>Clique para adicionar um arquivo</span>
+                </div>
+                </label>
+                <input type="file" name="material" id="material" multiple>
+
+                <a onclick="anterior()" id="anterior"><img src="imagens/proximo.svg"></a>
+                <input type="submit" value="Enviar" id="cadastracurso">
+            </section>
+
+        </form>
+    </main>
+    <footer>
+        <img src="imagens/logo.svg">
+    </footer>
+</body>
+</html>

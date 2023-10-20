@@ -1,0 +1,1122 @@
+@media only screen and (max-width: 4000px) {
+    *{
+        margin: 0px;
+        font-family: "Montserrat";
+    }
+    a:link, a:visited, a:hover, a:active{
+        text-decoration: none;
+    }
+    header{
+        width: 100%;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 80% 20%;
+        grid-template-rows: 100%;
+        box-shadow: 0 3px 10px gray;
+        z-index: 1;
+        position: relative;
+        background-color: white;
+    }
+
+    header section:nth-child(1) img{
+        display: grid;
+        height: fit-content;
+        margin: 8.34vw auto 8.34vw 9.55%;
+        
+    }
+    header section:nth-child(2) img{
+        width: 65%;
+        margin: 12.34vw auto auto auto;
+        display: block;
+        border-radius: 100%;
+    }
+
+    header section{
+        z-index: 0;
+        background-color: white;
+    }
+    nav{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-auto-rows: auto;
+        position: absolute;
+        width: 100%;
+        height: fit-content;
+        background-color: white;
+        box-shadow: 0 3px 10px gray;
+        z-index: -1;
+        transform: translateY(-80%);
+    }
+    nav a{
+        color: #333;
+        font-size: 7vw;
+        font-weight: 600;
+        width: fit-content;
+        height: fit-content;
+        display: block;
+        margin: 3vw 3vw 2vw 3vw;
+    }
+    nav .excluir{
+        color:darkred;
+        margin-bottom: 5vw;
+    }
+    nav .sair{
+        color: red;
+    }
+
+
+
+    #home1{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 7;
+        position: relative;
+        z-index: 0;
+        background-color: #F2F2F2;
+        padding:7.7vw 0;
+    }
+
+    #home1 h2, #levafiltro h2, #levachat h2{
+        font-size: 7.5vw;
+        font-weight: 700;
+        color: #333;
+        width: fit-content;
+        margin: 0 0 0 7.7%;
+        grid-column: 1 / 3;
+    }
+    #home1 span{
+        color: #4A39A4;
+    }
+
+    #home1 img:nth-child(5){
+        width: 100%;
+        margin: 0 0 0 7.7%;
+        grid-column: 1 / 2;
+        grid-row: 5 / 8
+    }
+    #home1 img:nth-child(6){
+        width: 60%;
+        margin: 0 7.7% 0 auto;
+        top: -125px;
+        position: relative;
+    }
+
+    #home1 button, #levafiltro button, #levachat button, #admbusca{
+        width: 70%;
+        height: 11vw;
+        font-weight: 450;
+        font-size: 4.17vw;
+        border-radius: 50px;
+        border: none;
+        background-color: #4A39A4;
+        color: #fff;
+        margin: 0 auto;
+        display: block;
+    }
+
+    #home1 #levacursos{
+        background-color: #fff;
+        color: #333;
+        border: 1px solid;
+    }
+    #home1 a:nth-child(8){
+        display: block;
+    }
+    #home1 a:nth-child(9){
+        display: block;
+    }
+
+    #destaques h2{
+        font-size: 7vw;
+        width: fit-content;
+        margin: 3vw auto;
+        color: #333;
+    }
+    #destaques #cursoscanto, #cursoscordas, #cursospercussao{
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+
+    #destaques .curso{
+        display: inline-grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto auto;
+        max-width: 85%;
+        height: fit-content;
+        background-color: #f2f2f2;
+        margin-left: 5vw;
+        padding-bottom: 5vw;
+    }
+    #destaques .curso:last-child{
+        margin-right: 5vw;
+    }
+
+    .curso img:nth-child(1){
+        width: 100%;
+    }
+
+    .curso h3, .curso h4, .curso p, .curso div span{
+        width: fit-content;
+        display: block;
+        padding: 1.5vw 5vw;
+        font-size: 4.5vw;
+        color: #333;
+    }
+    .curso h4{
+        font-size: 3vw;
+        padding: 0 5vw;
+        font-style: italic;
+    }
+    .curso p{
+        padding: 3vw 5vw;
+        grid-column: span 1;
+        font-size: 2.5vw;
+        font-weight: 550;
+        word-wrap: break-word;
+        height: fit-content;
+        white-space: normal;
+        text-align: justify;
+    }
+
+    .curso div{
+        width: 100%;
+    }
+    .curso div img{
+        height: 10vw;
+        width: 10vw !important;
+        padding: 0 2.5vw 0 5vw;
+    }
+    .curso div span{
+        font-size: 5vw;
+        display: inline;
+        font-weight: 400;
+        padding: 0;
+        position: relative;
+        top: -25%;
+    }
+    .curso button{
+        background-color: #3253AD;
+        color: #fff;
+        border: none;
+        height: 7vw;
+        width: fit-content;
+        border-radius: 50px;
+        font-size: 4vw;
+        margin-left: 4vw;
+        padding: 0 3vw;
+        top: -25%;
+        position: relative;
+    }
+
+
+    #levafiltro{
+        background-color: #f2f2f2;
+        padding: 7.7vw 0;
+        margin-top:7.7vw;
+        display: grid;
+        grid-template-columns: 70% auto;
+        grid-template-rows: auto auto;
+    }
+
+    #levafiltro h2{
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        width: fit-content;
+        height: fit-content;
+        margin-left: 11%;
+    }
+
+    #levafiltro img{
+        max-width: 60%;
+    }
+
+    #levafiltro a{
+        grid-column: 1 / 3;
+        margin-top: 7.7vw;
+    }
+    #levafiltro button{
+        display: block;
+        padding: 0;
+        background-color: #3253AD;
+    }
+
+
+    #levachat{
+        padding: 7.7vw 0;
+        display: grid;
+        grid-template-columns: 58% 42%;
+        grid-template-rows: auto auto 25vw;
+    }
+
+    #levachat h2:nth-child(1){
+        grid-column: 1 / 3;
+    }
+    #levachat h2:nth-child(2){
+        grid-column: 1 / 2;
+        margin-left: 15%;
+    }
+
+    #levachat img{
+        max-width: 80%;
+    }
+    #levachat img:nth-child(4){
+        margin-left: 15%;
+        position: relative;
+        top: -25vw;
+        max-width: 70%;
+    }
+
+    #levachat a{
+        margin-top: 14vw;
+        width: 90%;
+    }
+    #levachat button{
+        padding: 0;
+        width: 90%;
+        margin: 0;
+    }
+
+
+    #perfispop{
+        background-color: #f2f2f2;
+        width: 100%;
+        padding: 7.7vw 0;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-auto-rows: auto;
+    }
+    #perfis {
+        display: grid;
+        grid-column: span 2;
+        grid-template-columns: 50% 50%;
+        grid-auto-rows: 43vw;
+    }
+
+    #perfispop h3{
+        font-size: 5vw;
+        font-weight: 600;
+        width: fit-content;
+        display: block;
+        margin: 0 auto;
+        grid-column: 1 / 3;
+        padding: 2vw;
+    }
+
+    #perfispop .perfil{
+        width: 80%;
+        margin: 0 10%;
+        background-image: url(../imagens/imagem2.svg);
+        background-size: 100%;
+        height: 40vw;
+    }
+
+    .perfil div{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto auto;
+        background-color: rgba(255, 255, 255, 0.5);
+        margin-top: 10vw;
+        position: relative;
+        top: 10.5vw;
+        padding-top: 3vw;
+        border-top-left-radius: 4vw;
+        border-top-right-radius: 4vw;
+    }
+
+    .perfil div img{
+        grid-row: span 3;
+        display: block;
+        margin: 2vw auto;
+        width: 12.5vw;
+    }
+
+    .perfil div span{
+        font-weight: 450;
+        font-size: 2.5vw;
+        width: fit-content;
+        padding-top: 1.5vw;
+    }
+
+
+
+    #login{
+        display: block;
+    }
+    #cadastro{
+        display: none;
+    }
+    #login, #cadastro, #cadperfil{
+        padding:7.7vw;
+        color: #333;
+    }
+
+    #login #entrar, #cadastro #cadastrar, #cadastracurso section, #cadperfil{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+    }
+
+    #login h1, #cadastro h1, #cadperfil h1{
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+        font-size: 7.5vw;
+        margin-bottom: 3.7vw;
+        
+    }
+    #login label, #cadastro label, #cadastracurso label, #cadperfil label{
+        font-weight: 600;
+        font-size: 5vw;
+        padding: 10px 0 10px 8vw;
+        width: fit-content;
+    }
+
+    #login input, #cadastro input, #cadastracurso input, #cadperfil input{
+        height: 7vw;
+        width: 80%;
+        border: 1px #797979 solid;
+        border-radius: 50px;
+        display: block;
+        margin: 0 auto;
+        font-size: 4vw;
+        padding: 0 2vw;
+    }
+    #login input[type=checkbox]{
+        margin: 10px 10px 10px 8vw;
+        width: 7vw;
+        border-radius: 10px;
+        appearance: none;
+        display: inline;
+        grid-column: 1 / 2;
+        grid-row: 5 / 6;
+        position: relative;
+        z-index: 1;
+    }
+    #login input[type=checkbox]:checked{
+        background-image: url(../imagens/confere.svg);
+        background-size: cover;
+    }
+    #login #lembra{
+        display: inline;
+        width: fit-content;
+        font-weight: 450;
+        grid-column: 1 / 2;
+        grid-row: 5 / 6;
+        margin-left: 8vw;
+        position: relative;
+        z-index: 0;
+    }
+    #login #lembrar{
+        z-index: 0;
+    }
+    
+    #login input[type=submit], #cadastro input[type=submit], #cadperfil input[type=submit], #termo button, #a404 button{
+        background-color: #611E9B;
+        color: #fff;
+        font-size: 4vw;
+        display: block;
+        margin: 10px auto;
+        width: 50%;
+        height: 8vw;
+    }
+    #login span, #cadastro span, #cadperfil span{
+        color: #333;
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+        font-size: 2.5vw;
+    }
+    #login a, #cadastro a, #cadperfil a{
+        color: #02A7F0;
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+        font-size: 2.5vw;
+    }
+
+
+    #cadastro section, #cadperfil section{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 50% 50%;
+        width: 80%;
+        margin: 0 auto;
+    }
+    #cadastro section label, #cadperfil section label{
+        font-size: 3.5vw;
+        width: fit-content;
+        padding: 1.5vw;
+        grid-row: 2 / 3;
+    }
+    #cadastro #gen, #cadperfil #gened{
+        display: block;
+        grid-column: 1 / 4;
+        grid-row: 1 / 2;
+        font-size: 5vw;
+        margin: 0;
+        padding: 2vw 0;
+    }
+
+    #cadastro input[type=radio], #cadperfil input[type=radio]{
+        width: 5vw;
+        grid-row: 2 / 3;
+    }
+    #cadastro input[type=submit]{
+        background-color: #4A39A4;
+    }
+
+
+
+    #pesqnome, #filtro{
+        background-color: #f2f2f2;
+        margin: 5vw;
+        padding: 5vw 0;
+    }
+    #pesqnome input, #filtro select, #cadastracurso select{
+        border-radius: 25px;
+        border: 1px #333 solid;
+        padding: .5vw 2vw;
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+        font-size: 4vw;
+    }
+
+
+    #filtro section section{
+        display: none;
+        grid-column: 1 / 3;
+        grid-row: span 2;
+    }
+
+    #filtro section:nth-child(1){
+        padding: 0 5vw;
+        display: grid;
+        grid-template-columns: 14% auto;
+        grid-template-rows: auto;
+    }
+    #filtro select{
+        width: 95%;
+        grid-column: 1 / 3;
+        margin-bottom: 5vw;
+    }
+
+    #filtro input[type=checkbox]{
+        width: 5vw;
+        height: 5vw;
+        border: 1px #797979 solid;
+        border-radius: 10px;
+        display: block;
+        appearance: none;
+        margin: 1.5vw 3vw;
+    }
+    #filtro input[type=checkbox]:checked{
+        background-image: url(../imagens/confere.svg);
+        background-size: cover;
+    }
+
+    #filtro label{
+        width: fit-content;
+        height: fit-content;
+        display: block;
+        font-size: 5vw;
+        padding: 1vw 0;
+    }
+
+    #filtro #gratuito:not(:checked) ~ #gra{
+        display: block;
+    }
+    #filtro #gratuito:not(:checked) ~ #prec{
+        display: none;
+    }
+    #filtro #gratuito:checked ~ #grat{
+        display: none;
+    }
+    #filtro #gratuito:checked ~ #prec{
+        display: block;
+    }
+
+    /* CAIXAS DE SELETORES DO FILTRO */
+    #filtro #gratuito:checked ~ #filgratuito{
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: 15% 85%;
+        grid-template-rows: auto;
+        width: 100%;
+        height: fit-content;
+    }
+    #filgratuito label{
+        width: fit-content;
+        display: block;
+        margin: 0 auto;
+        padding: 2vw 3vw;
+    }
+    #filgratuito input{
+        font-size: 4vw;
+        width: 80%;
+        display: block;
+        margin: 2vw auto;
+        padding: .5vw 2vw;
+        border-radius: 50px;
+        border: 1px solid #797979;
+    }
+    
+    #filavaliacao div{
+        margin: 0 1vw;
+    }
+    #filavaliacao input{
+        height: 4vw;
+    }
+    #filtro #avaliacao:checked ~ #filavaliacao{
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20% ;
+        grid-template-rows: auto;
+        width: 90%;
+        height: fit-content;
+        margin: 0 4vw;
+    }
+    #filavaliacao label, #filavaliacao label img{
+        width: 90%;
+        padding: 0;
+        margin: 0;
+    }
+    #filavaliacao input{
+        position: relative;
+        width: 80%;
+        height: 100%;
+        transform: translateY(-87%);
+        opacity: .5;
+    }
+    #filavaliacao img{
+        width: 100%;
+    }
+    
+    /* #filavaliacao #star1:checked ~ #est1{
+        background-color: #611E9B;
+    }
+    #filavaliacao #star1[type='radio']:checked ~ #est2, #est3, #est4, #est5{
+        background-color: transparent;
+    }
+
+    #filavaliacao #star2[type='radio']:checked ~ #est1, #est2{
+        background-color: #611E9B;
+    }
+    #filavaliacao #star2[type='radio']:checked ~ #est3, #est4, #est5{
+        background-color: transparent;
+    }
+
+    #filavaliacao #star3[type='radio']:checked ~ #est1, #est2, #est3{
+        background-color: #611E9B;
+    }
+    #filavaliacao #star3[type='radio']:checked ~ #est4, #est5{
+        background-color: transparent;
+    }
+
+    #filavaliacao #star4[type='radio']:checked ~ #est1, #est2, #est3, #est4{
+        background-color: #611E9B;
+    }
+    #filavaliacao #star4[type='radio']:checked ~ #est5{
+        background-color: transparent;
+    }
+
+    #filavaliacao #star5[type='radio']:checked ~ #est1, #est2, #est3, #est4, #est5{
+        background-color: #611E9B;
+    } */
+
+
+
+    #filtro #data:checked ~ #fildata {
+        grid-column: span 2;
+        display: grid;
+        width: 80%;
+        margin: 0 auto;
+    }
+    #fildata select{
+        margin: 0;
+        width: 100%;
+    }
+
+    #filtro #qntdalun:checked ~ #filqntdalun{
+        grid-column: span 2;
+        display: grid;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    #filqntdalun input{
+        border-radius: 25px;
+        border: 1px #333 solid;
+        padding: 0.5vw 2vw;
+        width: 93%;
+        display: block;
+        margin: 0 auto;
+        font-size: 4vw;
+    }
+
+
+
+    #video{
+        padding: 7vw;
+        color: #333;
+    }
+    #video h1{
+        width: fit-content;
+        font-size: 5vw;
+    }
+    #video iframe{
+        width: 100%;
+        height: 48.5vw;
+        border-radius: 30px;
+        padding: 2vw 0;
+        background-color: black;
+    }
+    #video section{
+        padding: 3vw;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 100%;
+    }
+    #video img:nth-child(1){
+        width: 10vw;
+        transform: rotate(90deg);
+    }
+    #video img:nth-child(2){
+        width: 10vw;
+        transform: rotate(-90deg);
+        margin: 0 0 0 auto;
+    }
+
+    #material{
+        padding: 0 7vw 7vw 7vw;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        color: #333
+    }
+    #material h2{
+        width: fit-content;
+        font-size: 4.5vw;
+    }
+    #material a{
+        padding: 1.5vw 0;
+        font-size: 4vw;
+        display: grid;
+        grid-template-columns: 14% auto;
+        grid-template-rows: auto;
+    }
+    #material a img{
+        grid-row: span 2;
+        width: fit-content;
+    }
+    #material span{
+        color: #AAAAAA;
+        font-weight: 600;
+    }
+
+
+
+    #cadastracurso section:nth-child(1){
+        display: grid;
+    }
+    #cadastracurso section:nth-child(2){
+        display: none;
+    }
+
+    #cadastracurso{
+        padding: 7vw;
+    }
+    #cadastracurso #descricao{
+        height: 20vw;
+    }
+    #cadastracurso input[type=file]{
+        display: none;
+    }
+    #cadastracurso select{
+        width: 85%;
+        border-color: #797979;
+        height: 7vw;
+    }
+    #cadastracurso label{
+        width: 80%;
+    }
+    #cadastracurso label div{
+        background-color: red;
+        width: 100%;
+        height: 20vw;
+        margin: 3vw 0;
+        display: flex;
+        align-items: flex-end;
+        background-color: #F2F2F2;
+        border-radius: 30px;
+    }
+    #cadastracurso label span{
+        width: fit-content;
+        height: fit-content;
+        display: block;
+        font-size: 2vw;
+        margin: 0;
+        padding: 1vw 2vw;
+    }
+    #cadastracurso #videos{
+        grid-row: 4;
+    }
+    #cadastracurso #editar{
+        width: fit-content;
+        margin: 0 0 0 8vw;
+    }
+    #cadastracurso span{
+        width: fit-content;
+        display: block;
+        margin: 0 auto;
+        font-size: 2.5vw;
+    }
+    #cadastracurso a{
+        margin: 0 0 0 auto;
+    }
+    #cadastracurso #anterior{
+        margin: 0 0 5vw 8vw;
+        transform: rotate(.5turn);
+        width: fit-content;
+    }
+    #cadastracurso #proximo{
+        position: relative;
+        left: -8vw;
+    }
+    #cadastracurso a img{
+        width: 10vw;
+    }
+
+
+    #pesquisachat{
+        height: 7vw;
+        width: 85%;
+        border: 1px #797979 solid;
+        border-radius: 50px;
+        display: block;
+        margin: 7.7vw auto;
+        font-size: 4vw;
+        padding: 0 2vw;
+    }
+    #chat {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-auto-rows: auto;
+        margin: 0 auto 3vw auto;
+        width: 85%;
+        row-gap: 3vw;
+    }
+    .chat {
+        background-color: #F2F2F2;
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: 16vw auto;
+        grid-auto-rows: 9vw auto;
+        width: 100%;
+    }
+    .chat img{
+        grid-column: 1;
+        grid-row: span 2;
+        width: 13vw;
+        padding: 1.5vw
+    }
+    .chat h2{
+        width: fit-content;
+        height: fit-content;
+        display: block;
+        margin: 4vw 2vw 0 0;
+        font-size: 4vw;
+        font-weight: 600;
+    }
+    .chat h3{
+        width: fit-content;
+        height: fit-content;
+        display: block;
+        font-size: 3vw;
+        font-weight: 500;
+    }
+
+
+    .perfilmain {
+        background-color: #F2F2F2;
+        border-radius: 30px;
+        margin: 5vw auto;
+        width: 90%;
+        display: grid;
+        grid-template-columns: 19vw auto;
+        grid-auto-rows: 7vw 5vw auto;
+    }
+    .perfilmain img{
+        grid-row: span 3;
+        width: 13vw;
+        padding: 3vw;
+        border-radius: 100%;
+    }
+    .perfilmain h2{
+        grid-row: 1;
+        grid-column: 2;
+        width: fit-content;
+        height: fit-content;
+        font-size: 5vw;
+        margin: 1vw 0 0 3vw;
+    }
+    .perfilmain h3{
+        font-weight: 500;
+        grid-row: 2;
+        grid-column: 2;
+        width: fit-content;
+        height: fit-content;
+        font-size: 3vw;
+        margin: 1vw 0 0 3vw;
+    }
+    .perfilmain span, .perfilmain button, .perfilmain a{
+        grid-row: 3 / 4;
+        grid-column: 2;
+        width: fit-content;
+    }
+    .perfilmain button{
+        top: -2.5vw;
+        left: 42vw;
+        position: relative;
+        background-color: #3253AD;
+        color: #fff;
+        border: none;
+        height: 6vw;
+        width: fit-content;
+        border-radius: 50px;
+        font-size: 3vw;
+        padding: 1vw 3vw;
+    }
+    .perfilmain span{
+        margin-left: 3vw;
+        font-weight: 500;
+        font-size: 3vw;
+    }
+
+    #cursospostados, #cursoscomprados{
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+    .postados h2, .comprados h2{
+        font-size: 7vw;
+        width: fit-content;
+        margin: 3vw 6vw;
+        color: #333;
+    }
+    .postados .curso, .comprados .curso{
+        display: inline-grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto auto;
+        max-width: 85%;
+        height: fit-content;
+        background-color: #f2f2f2;
+        margin-left: 5vw;
+        padding-bottom: 5vw;
+    }
+    .postados .curso:last-child, .comprados .curso:last-child{
+        margin-right: 5vw;
+    }
+
+    #edperfil img{
+        display: block;
+        width: 33vw;
+        margin: 0 auto;
+        height: 33vw;
+        border-radius: 100%;
+    }
+    #edperfil label:nth-child(2){
+        display: block;
+        margin:0 auto 5vw auto;
+        width: 33vw;
+        height: 33vw;
+        padding: 0;
+    
+    }
+    #edperfil input{
+        margin: 2vw auto;
+    }
+
+    #cadastro .termos{
+        display: grid;
+        width: 85%;
+        margin: 0 auto;
+        grid-template-columns: 10% 90%;
+        grid-template-rows: 100%;
+    }
+    #cadastro #termos{
+        width: 100%;
+    }
+    #cadastro .termos2{
+        margin-top: 1.7vw!important;
+        margin-left: 1.7vw!important;
+    }
+    #cadastro .termos2, #cadastro .termos2 a{
+        margin:0;
+        padding:0;
+        font-size: 3vw;
+        display: inline;
+        height: fit-content;
+        font-weight: normal;
+    }
+
+    #termo h2{
+        width: fit-content;
+        margin: 3vw auto 0 auto;
+    }
+    #termo button{
+        border: none;
+        border-radius: 50px;
+        margin-bottom: 3vw;
+    }
+    article{
+        width: 85%;
+        text-align: justify;
+        display: block;
+        margin: 3vw auto;
+        line-height: 3vw;
+    }
+
+    #a404{
+        min-height: 30vw;
+        width: 85%;
+        display: block;
+        margin: 3vw auto;
+    }
+
+    #a404 h1{
+        display: block;
+        margin: 5vw auto;
+        font-size: 13vw;
+    }
+    #a404 p{
+        display: block;
+        margin: 0 auto;
+        font-size: 5vw;
+    }
+    #a404 button{
+        border: none;
+        border-radius: 50px;
+        margin: 5vw 0 5vw 45vw;
+    }
+
+    
+
+    .mainadm{
+        margin: 2vw;
+    }
+    .mainadm h1{
+        color: #ffffff;
+        font-weight: bolder;
+        background-color: #611E9B;
+        padding:1vw;
+    }
+    .mainadm a{
+        margin: 0 auto;
+    }
+    .tabelaadm{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+        height: fit-content;
+       
+    }
+    .tabadm{
+        background-color: #eee;
+        height: fit-content;
+ 
+    }
+    .tabadm h2{
+        padding: 0.5vw;
+        font-size: 3.8vw;
+        text-align: center;
+        font-weight: bolder;
+        color: #000;
+        grid-column: 1;
+    }
+    .tabadm h3{
+        font-size: 3.8vw;
+        grid-row: 1;
+        text-align: center;
+        font-weight: bolder;
+        color: #FFFFFF;
+        font-family: "Montserrat";
+    }
+    .tabeadm h2{
+        font-size: 3.8vw;
+        grid-row: 1;
+        text-align: center;
+        font-weight: bolder;
+        padding:0.5vw;
+    }
+    .tabeadm h3{
+        font-size: 3.8vw;
+        grid-row: 1;
+        text-align: center;
+        font-weight: bolder;
+        font-family: "Montserrat";
+    }
+    .botoestab{
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    .tabeadmb1{
+        background-color: #4A39A4;
+        color: #ffffff;
+        border: none;
+        border-radius: 10vw;
+        font-size: 4vw;
+        margin: 4vw 0 0 1vw;
+        padding: 1vw 2vw;
+        grid-column: 1;
+        grid-row: 4;
+    }
+    .tabeadmb2{
+        background-color: #e60e0e;
+        color: #ffffff;
+        border: none;
+        border-radius: 10vw;
+        font-size: 4vw;
+        margin: 4vw 0 0 2vw;
+        padding: 1vw 2vw;
+    }
+    #admbusca{
+        margin: 5vw auto;
+    }
+    .adm{
+        color:#611E9B;
+    }
+
+
+
+    footer {
+        width: 100%;
+        height: fit-content;
+        padding: 8.3vw 0;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 -3px 10px gray ;
+    }
+
+    footer img{
+        display: block;
+        margin: auto;
+        width: 50%;
+    }
+
+    #cadastro .erroscad, #login .erroslog{
+        color:red;
+        width: fit-content;
+        display: block;
+        margin: auto;
+        text-align: center;
+        width: 80%;
+    }
+
+}
+@media only screen and (min-width: 721px) {
+    body{
+        display: none;
+    }
+}
